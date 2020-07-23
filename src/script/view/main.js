@@ -8,7 +8,7 @@ const main = () => {
         dataSource.searchClub(searchElement.value);
     };
 
-    const renderResult = (results) => {
+    const renderResult = results => {
         clubListElement.innerHTML = "";
         results.forEach(function (club) {
 
@@ -36,7 +36,7 @@ const main = () => {
         })
     };
 
-    const fallbackResult = (message) => {
+    const fallbackResult = message => {
         clubListElement.innerHTML = "";
         // clubListElement.innerHTML += '<h2 class="placeholder">' + message + '</h2>'
         clubListElement.innerHTML += `<h2 class="placeholder">${message}</h2>`;
