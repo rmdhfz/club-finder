@@ -1,3 +1,5 @@
+import clubs from './clubs.js';
+
 class DataSource {
     // constructor(onSuccess, onFailed){
     //     this.onSuccess = onSuccess;
@@ -37,3 +39,4 @@ class DataSource {
 //         this.onFailed(`${keyword} is not found`);
 //     }
 // };
+export default DataSource;
