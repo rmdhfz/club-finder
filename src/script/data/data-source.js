@@ -1,20 +1,37 @@
-function DataSource(onSuccess, onFailed) {
-    this.onSuccess = onSuccess;
-    this.onFailed = onFailed;
+class DataSource {
+    constructor(onSuccess, onFailed){
+        this.onSuccess = onSuccess;
+        this.onFailed  = onFailed;
+    }
+    searchClub(keyword){
+        const filteredClubs = clubs.filter(club => club.name.toUpperCase().includes(keyword.toUpperCase()));
+        
+        if (filteredClubs.length) {
+            this.onSuccess(filteredClubs);
+        } else {
+            // this.onFailed(keyword + " is not found");
+            this.onFailed(`${keyword} is not found`);
+        }
+    }
 }
 
-DataSource.prototype.searchClub = function (keyword) {
+// function DataSource(onSuccess, onFailed) {
+//     this.onSuccess = onSuccess;
+//     this.onFailed = onFailed;
+// }
 
-    // const filteredClubs = clubs.filter(function (club) {
-    //     return club.name.toUpperCase().includes(keyword.toUpperCase());
-    // });
+// DataSource.prototype.searchClub = function (keyword) {
 
-    const filteredClubs = clubs.filter(club => club.name.toUpperCase().includes(keyword.toUpperCase()));
+//     // const filteredClubs = clubs.filter(function (club) {
+//     //     return club.name.toUpperCase().includes(keyword.toUpperCase());
+//     // });
 
-    if (filteredClubs.length) {
-        this.onSuccess(filteredClubs);
-    } else {
-        // this.onFailed(keyword + " is not found");
-        this.onFailed(`${keyword} is not found`);
-    }
-};
+//     const filteredClubs = clubs.filter(club => club.name.toUpperCase().includes(keyword.toUpperCase()));
+
+//     if (filteredClubs.length) {
+//         this.onSuccess(filteredClubs);
+//     } else {
+//         // this.onFailed(keyword + " is not found");
+//         this.onFailed(`${keyword} is not found`);
+//     }
+// };
